@@ -1,28 +1,63 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 class="text-center">Tabla de Usuario</h1>
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Run</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="dato in datos" v-bind:key="dato">
+            <th scope="row">{{ dato.nombre }}</th>
+            <td>{{ dato.apellido }}</td>
+            <td>{{ dato.run }}</td>
+            <td>{{ dato.nacimiento }}</td>
+            <td>{{ dato.edad }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data() {
+    return {
+      datos: [
+        {
+          nombre: "Jose",
+          apellido: "Pérez",
+          run: "123456-2",
+          nacimiento: "12-04-1967",
+          edad: 52,
+        },
+
+        {
+          nombre: "María",
+          apellido: "rodriguez",
+          run: "654321-1",
+          nacimiento: "30-11-1990",
+          edad: 29,
+        },
+
+        {
+          nombre: "Manuel",
+          apellido: "Patiño",
+          run: "14223456-6",
+          nacimiento: "02-03-1959",
+          edad: 60,
+        },
+      ],
+    };
+  },
+};
+</script>
